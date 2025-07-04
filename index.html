@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Cumpleaños</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(120deg, #0f0f0f, #1a1a1a);
+      background-size: 200% 200%;
+      animation: bgAnimation 10s ease infinite;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      max-width: 90%;
+      margin-bottom: 50px;
+      color: #fff;
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #ff00de,
+        0 0 20px #ff00de,
+        0 0 30px #ff00de,
+        0 0 40px #ff00de;
+      animation: neonBlink 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes neonBlink {
+      0% {
+        text-shadow:
+          0 0 5px #fff,
+          0 0 10px #ff00de,
+          0 0 20px #ff00de,
+          0 0 30px #ff00de,
+          0 0 40px #ff00de;
+        opacity: 1;
+      }
+      100% {
+        text-shadow:
+          0 0 2px #fff,
+          0 0 5px #ff00de,
+          0 0 10px #ff00de,
+          0 0 15px #ff00de,
+          0 0 20px #ff00de;
+        opacity: 0.85;
+      }
+    }
+
+    .cake {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      transform: scale(1);
+      transition: transform 0.5s ease;
+    }
+
+    .cake:hover {
+      transform: scale(1.05);
+    }
+
+    .layer {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .layer1 {
+      bottom: 0;
+      width: 200px;
+      height: 60px;
+      background-color: #ff69b4;
+    }
+
+    .layer2 {
+      bottom: 60px;
+      width: 160px;
+      height: 50px;
+      background-color: #ff85a2;
+    }
+
+    .layer3 {
+      bottom: 110px;
+      width: 120px;
+      height: 40px;
+      background-color: #ffb6c1;
+    }
+
+    .candle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 10px;
+      height: 40px;
+      background: #fff;
+      border-radius: 2px;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .flame {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #ff0 40%, transparent 70%);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      animation: flicker 0.2s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1); opacity: 1; }
+      100% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .cake {
+        transform: scale(0.8);
+      }
+    }
+  </style>
+  <script>
+    setTimeout(() => {
+      window.location.href = "galeria.html";
+    }, 20000);
+  </script>
+</head>
+<body>
+  <h1>🎂 Feliz cumpleaños Señora de 40 años, Sheyla 🎉</h1>
+
+  <div class="cake">
+    <div class="layer layer1"></div>
+    <div class="layer layer2"></div>
+    <div class="layer layer3"></div>
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+  </div>
+</body>
+</html>
