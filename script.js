@@ -2,9 +2,10 @@ const music = document.getElementById("bg-music");
 const video = document.getElementById("video");
 const startBtn = document.getElementById("start-btn");
 const gallery = document.getElementById("gallery");
-const grupo1 = document.getElementById("grupo1");
-const grupo2 = document.getElementById("grupo2");
+const fotosTodas = document.getElementById("fotos-todas");
 const videoContainer = document.getElementById("video-container");
+const mostrarBtn = document.getElementById("mostrar-mensaje");
+const mensaje = document.getElementById("mensaje-final");
 
 startBtn.addEventListener("click", async () => {
   try {
@@ -14,16 +15,16 @@ startBtn.addEventListener("click", async () => {
   }
 
   gallery.style.display = "block";
-  grupo1.style.display = "block";
+  fotosTodas.classList.add("show");
+  videoContainer.classList.add("show");
   startBtn.style.display = "none";
 
-  setTimeout(() => {
-    grupo2.style.display = "block";
-  }, 20000);
+  mostrarBtn.style.display = "inline-block";
+});
 
-  setTimeout(() => {
-    videoContainer.style.display = "block";
-  }, 30000);
+mostrarBtn.addEventListener("click", () => {
+  mensaje.style.display = "block";
+  mostrarBtn.style.display = "none";
 });
 
 video.addEventListener("play", () => {
