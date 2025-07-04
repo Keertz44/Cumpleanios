@@ -9,19 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const mostrarBtn = document.getElementById("mostrar-mensaje");
   const mensaje = document.getElementById("mensaje-final");
 
-  // Reproducir música al entrar
+  // Iniciar música y mostrar contenido
   startBtn.addEventListener("click", async () => {
     try {
       await music.play();
+      console.log("🎵 Música reproduciéndose...");
     } catch (e) {
-      console.warn("Error al reproducir música:", e);
+      console.warn("No se pudo reproducir la música automáticamente:", e);
     }
 
     gallery.style.display = "block";
     fotosTodas.classList.add("show");
     videoContainer.classList.add("show");
     startBtn.style.display = "none";
-
     mostrarBtn.style.display = "inline-block";
   });
 
@@ -31,21 +31,24 @@ document.addEventListener("DOMContentLoaded", () => {
     mostrarBtn.style.display = "none";
   });
 
-  // Función para bajar y subir el volumen
-  const manejarVolumen = (video) => {
+  // Función para manejar volumen
+  function manejarVolumen(video, nombre) {
     video.addEventListener("play", () => {
+      console.log(`▶️ ${nombre} se está reproduciendo`);
       music.volume = 0.1;
     });
 
     video.addEventListener("pause", () => {
+      console.log(`⏸️ ${nombre} pausado`);
       music.volume = 1.0;
     });
 
     video.addEventListener("ended", () => {
+      console.log(`🔚 ${nombre} terminó`);
       music.volume = 1.0;
     });
-  };
+  }
 
-  manejarVolumen(video1);
-  manejarVolumen(video2);
+  manejarVolumen(video1, "Video 1");
+  manejarVolumen(video2, "Video 2");
 });
